@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MakeWeb Autocomplete</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap&subset=cyrillic" rel="stylesheet">
+    <link rel="stylesheet" href="CSS.css">
+</head>
+<body class="body">
+<input class="body-input" type="text" id="autocomplete" placeholder="Начните репозитория" autocomplete="off">
+<div class="container"></div>
+<div id=github></div>
+<div class="body-repos">
+    <div class="container-repos"></div>
+</div>
+<script src="js.js"></script>
+</body>
+</html>
+<script>
+    let name;
+    let owner;
+    let stargazers_count;
+    async function getUsers() {
+        try {
+            let response = await fetch('https://api.github.com/search/repositories?q=${items}&sort=stars&order=desc&per_page=100');
+            let users = await response.json();
+            let items = await users.items
+            name = items.map(repo => repo.name);
+            owner = items.map(repo => repo.owner.login);
+            stargazers_count = items.map(repo => repo.stargazers_count);
+            Autocomplete('#autocomplete', name, name, owner, stargazers_count)
+            return users;
+        } catch(error) {
+            alert(error);
+        }
+    }
+    getUsers();
+</script>

@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    outline: none !important;
+    box-sizing: border-box;
+
+}
+
+html, body {
+    height: 100%;
+}
+html{
+    background-color: #eeeeee;
+}
+body {
+    display: flex;
+    align-items: center;
+    font-family: Roboto;
+    flex-direction: column;
+    width: 661px;
+    height: 763px;
+    background-color: grey;
+}
+.body-input {
+    padding: 0;
+    border: 1px solid black;
+    width: 500px;
+    height: 61px;
+    font-size: 24px;
+}
+
+.autocomplete-wrap {
+    position: relative;
+    margin: 62px 84px 0 74px;
+
+}
+.autocomplete-list {
+    position: absolute;
+    top: 100%;
+    border: 1px solid #97b46c;
+    width: 100%;
+    display: none;
+    z-index: 9999;
+    max-height: 400px;
+    height: 220px;
+    background-color: #E5E5E5;
+    overflow: hidden;
+
+}
+
+.body-repos{
+    width: 503px;
+    height: 301px;
+    margin: 265px 84px 72px 74px;
+}
+
+.autocomplete-wrap.active .autocomplete-list {
+    display: block;
+    border-radius: 0 0 3px 3px;
+}
+
+.autocomplete-item {
+    padding: 8px 10px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all .3s ease;
+    height: 44px;
+
+}
+.autocomplete-item:hover {
+    background: #65CDF9;
+}
+
+.autocomplete-wrap.active .autocomplete-input {
+    border-radius: 3px 3px 0 0;
+    border-bottom: 1px solid transparent;
+}
+.card{
+    display: flex;
+    width: 500px;
+    height: 101px;
+    background-color: #E27BEB;
+    border: 1px solid black;
+    justify-content: center;
+}
+.card-body{
+    width: 470px !important;
+    height: 85px;
+    align-items: center;
+    margin: 8px;
+    display: flex;
+    justify-content: space-between;
+
+}
+.container-repos{
+    overflow: hidden;
+}
+.card-text{
+    width: 501px;
+    height: 50px;
+    background-color: wheat;
+
+}
+.text-p{
+    size: 24px;
+    font-size: 24px;
+    line-height: 28px;
+}
+.delete-bottom{
+    width: 50px;
+    height: 50px;
+    background-color: beige;
+    margin-right: 17px;
+    cursor: pointer;
+}
